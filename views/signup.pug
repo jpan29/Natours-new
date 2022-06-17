@@ -1,0 +1,16 @@
+extends base
+
+mixin siupUpForm(id,label,type,placeholder)
+  .form__group
+    label.form__label(for=`${id}`)= label
+    input.form__input(id=id, type=`${type}`, placeholder=`${placeholder}`, required)
+block content 
+  main.main
+    .signup-form
+      h2.heading-secondary.ma-bt-lg Sign up a new account
+      form.form.form--signup
+        +siupUpForm('name','Name','text','your name')
+        +siupUpForm('email','Email address','email','you@example.com')
+        +siupUpForm('password','Password','password','••••••••')
+        +siupUpForm('confirmPassword','Confirm Password','password','••••••••')
+        button.btn.btn--green Signup
